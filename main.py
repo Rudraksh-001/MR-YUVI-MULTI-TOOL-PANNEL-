@@ -24,9 +24,12 @@ def ig_spammer():
     <body>
     <!-- 🔥 ADD THIS BLOCK -->
     <div style="text-align: center; padding: 20px;">
-        <img src="{{ url_for('static', filename='logo.png') }}" alt="KING MAKER YUVI" style="height: 100px; border-radius: 20px; box-shadow: 0 0 20px #0ff;">
-        <h1 style="color: #00ff99; text-shadow: 0 0 5px #0ff;">TOOL PANEL BY KING MAKER YUVI</h1>
-    </div>
+        <div style="text-align: center; padding: 20px;">
+    <img src="https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg"
+         alt="KING MAKER YUVI"
+         style="height: 100px; border-radius: 20px; box-shadow: 0 0 20px #0ff;">
+    <h1 style="color: #00ff99; text-shadow: 0 0 5px #0ff;">TOOL PANEL BY KING MAKER YUVI</h1>
+</div>
 
     <!-- TOOLS or BUTTONS here -->
 </body>
