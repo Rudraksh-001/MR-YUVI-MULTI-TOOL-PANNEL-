@@ -195,5 +195,24 @@
       });
     });
   </script>
+
+    <script>
+  async function fetchLiveInfo() {
+    try {
+      const response = await fetch("/live-info");
+      const data = await response.json();
+      document.getElementById("time").innerText = data.time;
+      document.getElementById("date").innerText = data.date;
+      document.getElementById("ip").innerText = data.ip;
+    } catch (err) {
+      console.error("Error fetching live info", err);
+    }
+  }
+
+  // Fetch initially and then every 10 seconds
+  fetchLiveInfo();
+  setInterval(fetchLiveInfo, 10000);
+    </script>
+    
 </body>
 </html>
