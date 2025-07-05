@@ -126,11 +126,11 @@
       <div><i class="fas fa-user-circle"></i> TOOL OWNER MR_YUVI 🐼</div>
     </div>
     <div class="welcome">😘 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐓𝐇𝐄 𝐏𝐀𝐍𝐍𝐄𝐋 𝐎𝐅 𝐋𝐄𝐆𝐄𝐍𝐃 𝐘𝐔𝐕𝐈 🐼</div>
-    <div class="ping">PING <span style="color:#00ff99;">Online</span></div>
-<div class="time">TIME: <span id="time" style="color: #ffff66;"></span></div>
-<div class="date">DATE: <span id="date" style="color: #ffff66;"></span></div>
-<div class="ip">IP: <span id="ip" style="color: #ffff66;"></span></div>
-
+    <div>PING <span style="color: #00ff99;">Online</span></div>
+<div>TIME: <span id="time" style="color: #ffff66;">Loading...</span></div>
+<div>DATE: <span id="date" style="color: #ffff66;">Loading...</span></div>
+<div>IP: <span id="ip" style="color: #ffff66;">Loading...</span></div>
+    
     <div class="tool-box">
   <div class="tool-title">SERVER FOR INSTAGRAM</div>
   <div class="tool-desc">Host your Instagram bot/spammer tool in one click using Render server.</div>
@@ -195,24 +195,23 @@
       });
     });
   </script>
-
-    <script>
-  async function fetchLiveInfo() {
+    
+<script>
+  async function updateInfo() {
     try {
-      const response = await fetch("/live-info");
-      const data = await response.json();
-      document.getElementById("time").innerText = data.time;
-      document.getElementById("date").innerText = data.date;
-      document.getElementById("ip").innerText = data.ip;
+      const res = await fetch('/live-info');
+      const data = await res.json();
+      document.getElementById('time').textContent = data.time;
+      document.getElementById('date').textContent = data.date;
+      document.getElementById('ip').textContent = data.ip;
     } catch (err) {
-      console.error("Error fetching live info", err);
+      console.error('Error loading live info:', err);
     }
   }
 
-  // Fetch initially and then every 10 seconds
-  fetchLiveInfo();
-  setInterval(fetchLiveInfo, 10000);
-    </script>
+  updateInfo(); // Pehli baar call
+  setInterval(updateInfo, 10000); // Har 10 sec me update
+</script>
     
 </body>
 </html>
