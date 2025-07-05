@@ -9,6 +9,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    <script>
+  document.querySelectorAll('.open-tool-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const url = btn.getAttribute('data-link');
+      if (url) window.open(url, '_blank');
+    });
+  });
+</script>
     body {
       font-family: 'Orbitron', sans-serif;
       display: flex;
@@ -133,7 +141,7 @@
 
     <div class="tool-box">
   <div class="tool-title">INSTAGRAM SPAMMER TOOL</div>
-  <div class="tool-desc">Auto-send messages to usernames or groups using your IG account.</div>
+  <div class="tool-desc">Send bulk messages to users/groups via Instagram using your credentials.</div>
   <button class="open-tool-btn" data-link="/ig-spammer">Open Tool</button>
     </div>
 
