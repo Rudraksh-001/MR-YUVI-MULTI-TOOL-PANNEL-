@@ -20,7 +20,16 @@ def ig_spammer():
     HTML_HEAD = """
     <html><head><title>IG Tool by KING MAKER YUVI</title>
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-    <style>body{background:#000;color:#0f0;font-family:monospace;}.container{margin-top:50px}</style></head><body>
+    <style>
+    <body>
+    <!-- 🔥 ADD THIS BLOCK -->
+    <div style="text-align: center; padding: 20px;">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="KING MAKER YUVI" style="height: 100px; border-radius: 20px; box-shadow: 0 0 20px #0ff;">
+        <h1 style="color: #00ff99; text-shadow: 0 0 5px #0ff;">TOOL PANEL BY KING MAKER YUVI</h1>
+    </div>
+
+    <!-- TOOLS or BUTTONS here -->
+</body>
     <div class='container'><h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
     """
 
