@@ -8,7 +8,9 @@ app = Flask(__name__)
 app.secret_key = 'yuvi-king-secret'
 clients = {}
 stop_flags = {}
-@app.route('/') def index(): return render_template('index.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/ig-spammer', methods=['GET', 'POST']) def ig_spammer(): HTML_HEAD = """ <html><head><title>IG Tool by KING MAKER YUVI</title> <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'> <style>body{background:#000;color:#0f0;font-family:monospace;}.container{margin-top:50px}</style></head><body> <div class='container'><h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr> """
 
