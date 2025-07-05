@@ -1,6 +1,11 @@
-from flask import Flask, request, session, render_template from instagrapi import Client import os, time, uuid from threading import Thread
+from flask import Flask, request, session, render_template
+from instagrapi import Client
+import os
+import time
+import uuid
+from threading import Thread
 
-app = Flask(name) app.secret_key = 'yuvi-king-secret'
+app = Flask(__name__) app.secret_key = 'yuvi-king-secret'
 
 clients = {} stop_flags = {}
 
