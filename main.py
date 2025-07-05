@@ -17,7 +17,7 @@ def index():
 
 @app.route('/ig-spammer', methods=['GET', 'POST'])
 def ig_spammer():
-HTML_HEAD = """
+    HTML_HEAD = """
     <!DOCTYPE html>
     <html>
     <head>
@@ -53,10 +53,16 @@ HTML_HEAD = """
                 border: none;
                 box-shadow: 0 0 10px #00ff99;
             }
+            .btn-success:hover {
+                box-shadow: 0 0 20px #00ff99;
+            }
             .btn-danger {
                 background-color: #ff0066;
                 border: none;
                 box-shadow: 0 0 10px #ff0066;
+            }
+            .btn-danger:hover {
+                box-shadow: 0 0 20px #ff0066;
             }
             .form-control {
                 background-color: rgba(0, 0, 0, 0.4);
@@ -69,20 +75,33 @@ HTML_HEAD = """
                 box-shadow: 0 0 10px #00ffc3;
                 border-color: #00ffc3;
             }
+            .loader {
+                border: 5px solid #f3f3f3;
+                border-top: 5px solid #00ffcc;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                animation: spin 1s linear infinite;
+                margin: auto;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
         </style>
     </head>
     <body>
         <div class='text-center mt-4'>
             <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
-            <h1>TOOL PANEL BY KING MAKER YUVI</h1>
+            <h1>TOOL PANEL BY KING MAKER YUVI 👑 <span style='font-size: 16px; color: #ff69b4;'>[ADMIN]</span></h1>
         </div>
         <div class='container'>
             <div class='glass'>
-                <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL 👑</h2><hr>
+                <h2 class='text-center'>🔥 INSTAGRAM SPAMMER TOOL 🔥</h2><hr>
     """
 
     HTML_FOOT = """
-                <p class='text-center mt-4'>Made by <b>KING MAKER YUVI</b></p>
+                <p class='text-center mt-4'>Made with ❤️ by <b>KING MAKER YUVI</b></p>
             </div>
         </div>
     </body>
@@ -147,7 +166,9 @@ HTML_HEAD = """
         session['username'] = username
 
         return HTML_HEAD + f"""
-        <h4>✅ Started attack for <b>{username}</b></h4>
+        <div class='text-center'>
+        <div class='loader'></div>
+        <h4 class='mt-3'>✅ Started attack for <b>{username}</b></h4>
         <h5>🚩 STOP Key: <code>{thread_key}</code></h5>
         <h4>📨 Messages Sent: <span id='count'>0</span></h4>
         <script>
@@ -157,7 +178,7 @@ HTML_HEAD = """
             }});
         }}, 2000);
         </script>
-        <a href='/ig-spammer'>Back</a>
+        <a href='/ig-spammer'>Back</a></div>
         """ + HTML_FOOT
 
     html = HTML_HEAD + """
@@ -168,12 +189,12 @@ HTML_HEAD = """
         <label>OR Group Thread ID:</label><input name='groupThreadId' class='form-control'>
         <label>Message File (.txt):</label><input type='file' name='txtFile' class='form-control' required>
         <label>Time Interval (seconds):</label><input type='number' name='timeInterval' class='form-control' value='2' required>
-        <button type='submit' class='btn btn-success w-100 mt-3'>Launch Attack</button>
+        <button type='submit' class='btn btn-success w-100 mt-3'>🚀 Launch Attack</button>
     </form>
     <hr>
     <form method='post' action='/stop'>
         <label>Enter STOP Key:</label><input name='thread_key' class='form-control' required>
-        <button type='submit' class='btn btn-danger w-100 mt-2'>STOP</button>
+        <button type='submit' class='btn btn-danger w-100 mt-2'>🚩 STOP</button>
     </form>
     """ + HTML_FOOT
     return html
@@ -183,7 +204,7 @@ def stop():
     thread_key = request.form['thread_key']
     if thread_key in stop_flags:
         stop_flags[thread_key] = True
-        return f"<h3>🛑 Stopped key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
+        return f"<h3>🚩 Stopped key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
     return f"<h3>❌ Invalid key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
 
 @app.route('/msg-count/<thread_key>')
@@ -193,3 +214,4 @@ def get_msg_count(thread_key):
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+    
