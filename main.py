@@ -17,69 +17,85 @@ def index():
 
 @app.route('/ig-spammer', methods=['GET', 'POST'])
 def ig_spammer():
-    HTML_HEAD = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>IG Tool by KING MAKER YUVI</title>
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-        <style>
-    body {
-        background: linear-gradient(135deg, #ccffcc, #e6ffe6);
-        color: #000;
-        font-family: Arial, sans-serif;
-        padding: 20px;
-    }
-    .logo {
-        height: 100px;
-        border-radius: 20px;
-        box-shadow: 0 0 20px #ff69b4;
-    }
-    h1, h2, h4, h5 {
-        color: #006600;
-        text-shadow: 0 0 5px #ff69b4;
-    }
-    label {
-        font-weight: bold;
-    }
-    input, select, textarea {
-        margin-bottom: 10px;
-        border: 2px solid #99ff99;
-        background: #ffffffcc;
-        color: #000;
-    }
-    .btn-success {
-        background-color: #ff66cc;
-        border-color: #ff66cc;
-        color: #fff;
-        box-shadow: 0 0 10px #ff66cc;
-    }
-    .btn-danger {
-        background-color: #ff1a75;
-        border-color: #ff1a75;
-        color: #fff;
-        box-shadow: 0 0 10px #ff1a75;
-    }
-    .btn-success:hover, .btn-danger:hover {
-        box-shadow: 0 0 20px #ff33aa;
-    }
-    .container {
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 0 15px #ff99cc;
-    }
-</style>
-    </head>
-    <body>
-        <div class='text-center mt-4'>
-            <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
-            <h1>TOOL PANEL BY KING MAKER YUVI 👑 <span style='font-size: 16px; color: #ff69b4;'>[ADMIN]</span></h1>
-        </div>
-        <div class='container'>
-            <div class='glass'>
-                <h2 class='text-center'>🔥 INSTAGRAM SPAMMER TOOL 🔥</h2><hr>
-    """
+HTML_HEAD = """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IG Tool by KING MAKER YUVI</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        video.bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #ff69b4;
+            margin-top: 30px;
+        }
+        .logo {
+            height: 100px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #0ff;
+        }
+        h1, h2, h4, h5 {
+            color: #99ffcc;
+            text-shadow: 0 0 5px #ff69b4;
+        }
+        label {
+            font-weight: bold;
+            color: #ffffff;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+            border: 2px solid #99ff99;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+        .btn-success {
+            background-color: #ff66cc;
+            border-color: #ff66cc;
+            color: #fff;
+            box-shadow: 0 0 10px #ff66cc;
+        }
+        .btn-danger {
+            background-color: #ff1a75;
+            border-color: #ff1a75;
+            color: #fff;
+            box-shadow: 0 0 10px #ff1a75;
+        }
+        .btn-success:hover, .btn-danger:hover {
+            box-shadow: 0 0 20px #ff33aa;
+        }
+    </style>
+</head>
+<body>
+    <video class="bg-video" autoplay muted loop>
+        <source src="https://cdn.pixabay.com/video/2023/05/31/167252-829595670_large.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class='text-center mt-3'>
+        <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
+        <h1>TOOL PANEL BY KING MAKER YUVI</h1>
+    </div>
+    <div class='container'>
+        <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
+"""
 
     HTML_FOOT = """
                 <p class='text-center mt-4'>Made with ❤️ by <b>KING MAKER YUVI</b></p>
