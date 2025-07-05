@@ -1,4 +1,6 @@
-from flask import Flask, request, session, render_template
+from flask import Flask, render_template, jsonify
+from datetime import datetime
+import requests
 from instagrapi import Client
 import os
 import time
@@ -11,6 +13,19 @@ app.secret_key = 'yuvi-king-secret'
 clients = {}
 stop_flags = {}
 
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/live-info")
+def live_info():
+    now = datetime.now()
+    return jsonify({
+        "time": now.strftime("%H:%M:%S"),
+        "date": now.strftime("%Y-%m-%d"),
+        "ip": requests.get('https://api.ipify.org').text
+    })
+    
 @app.route('/')
 def home():
     return render_template('index.html')
