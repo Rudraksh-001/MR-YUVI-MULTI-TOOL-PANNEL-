@@ -3,13 +3,13 @@ from instagrapi import Client
 import os, time, uuid
 from threading import Thread
 from itertools import cycle
+msg_count = {}
 
 app = Flask(__name__)
 app.secret_key = 'yuvi-king-secret'
 
 clients = {}
 stop_flags = {}
-msg_count = {}
 
 @app.route('/')
 def index():
@@ -55,7 +55,7 @@ def ig_spammer():
 
             thread_key = str(uuid.uuid4())[:8]
 
-            def spam():
+def spam():
     stop_flags[thread_key] = False
     msg_count[thread_key] = 0
     try:
@@ -76,6 +76,7 @@ def ig_spammer():
                 time.sleep(time_interval)
     except Exception as e:
         print("Error:", e)
+        
             thread = Thread(target=spam)
             thread.start()
             clients[thread_key] = {"username": username, "client": cl, "thread": thread}
