@@ -99,20 +99,20 @@ return html
 
 @app.route('/ig-spammer', methods=['GET', 'POST'])
 def ig_spammer():
-    HTML_HEAD = """ ... """
-    HTML_FOOT = """ ... """
+    HTML_HEAD = """..."""
+    HTML_FOOT = """..."""
 
     if request.method == 'POST':
-        # ... your login, file, and threading logic ...
+        # your logic here...
 
         try:
-            # setup client, start thread, etc.
+            # your try block...
             return HTML_HEAD + f"<h4>✅ Started attack for <b>{username}</b></h4><h5>🚩 STOP Key: <code>{thread_key}</code></h5><a href='/ig-spammer'>Back</a>" + HTML_FOOT
         except Exception as e:
             return HTML_HEAD + f"<h4>❌ Error: {e}</h4><a href='/ig-spammer'>Back</a>" + HTML_FOOT
 
-    # GET request fallback
-    html = HTML_HEAD + """ ... form code ... """ + HTML_FOOT
+    # GET method form rendering
+    return HTML_HEAD + """...your form here...""" + HTML_FOOT
     return html
 
 if __name__ == '__main__':
