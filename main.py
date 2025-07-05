@@ -97,13 +97,23 @@ html = HTML_HEAD + """
 """ + HTML_FOOT
 return html
 
-@app.route('/stop', methods=['POST'])
-def stop():
-    thread_key = request.form['thread_key']
-    if thread_key in stop_flags:
-        stop_flags[thread_key] = True
-        return f"<h3>🚩 Stopped key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
-    return f"<h3>❌ Invalid key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
+@app.route('/ig-spammer', methods=['GET', 'POST'])
+def ig_spammer():
+    HTML_HEAD = """ ... """
+    HTML_FOOT = """ ... """
+
+    if request.method == 'POST':
+        # ... your login, file, and threading logic ...
+
+        try:
+            # setup client, start thread, etc.
+            return HTML_HEAD + f"<h4>✅ Started attack for <b>{username}</b></h4><h5>🚩 STOP Key: <code>{thread_key}</code></h5><a href='/ig-spammer'>Back</a>" + HTML_FOOT
+        except Exception as e:
+            return HTML_HEAD + f"<h4>❌ Error: {e}</h4><a href='/ig-spammer'>Back</a>" + HTML_FOOT
+
+    # GET request fallback
+    html = HTML_HEAD + """ ... form code ... """ + HTML_FOOT
+    return html
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
