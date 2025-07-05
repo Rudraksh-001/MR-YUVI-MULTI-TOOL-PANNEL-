@@ -97,7 +97,13 @@ html = HTML_HEAD + """
 """ + HTML_FOOT
 return html
 
-@app.route('/stop', methods=['POST']) def stop(): thread_key = request.form['thread_key'] if thread_key in stop_flags: stop_flags[thread_key] = True return f"<h3>🚩 Stopped key: {thread_key}</h3><a href='/ig-spammer'>Back</a>" return f"<h3>❌ Invalid key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
+@app.route('/stop', methods=['POST'])
+def stop():
+    thread_key = request.form['thread_key']
+    if thread_key in stop_flags:
+        stop_flags[thread_key] = True
+        return f"<h3>🚩 Stopped key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
+    return f"<h3>❌ Invalid key: {thread_key}</h3><a href='/ig-spammer'>Back</a>"
 
 if name == 'main': port = int(os.environ.get("PORT", 5000)) app.run(host='0.0.0.0', port=port)
 
