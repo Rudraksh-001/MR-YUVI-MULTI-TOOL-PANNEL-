@@ -61,20 +61,21 @@ def ig_spammer():
     try:
         if group_thread_id:
             for msg in cycle(messages):
-                if stop_flags[thread_key]: break
+                if stop_flags[thread_key]:
+                    break
                 cl.direct_send(msg, thread_ids=[group_thread_id])
                 msg_count[thread_key] += 1
                 time.sleep(time_interval)
         elif target_username:
             user_id = cl.user_id_from_username(target_username)
             for msg in cycle(messages):
-                if stop_flags[thread_key]: break
+                if stop_flags[thread_key]:
+                    break
                 cl.direct_send(msg, [user_id])
                 msg_count[thread_key] += 1
                 time.sleep(time_interval)
-                except Exception as e:
-                    print("Error:", e)
-
+    except Exception as e:
+        print("Error:", e)
             thread = Thread(target=spam)
             thread.start()
             clients[thread_key] = {"username": username, "client": cl, "thread": thread}
