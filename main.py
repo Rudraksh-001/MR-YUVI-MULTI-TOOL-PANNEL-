@@ -43,17 +43,20 @@ def ig_spammer():
             messages = f.read().splitlines()
 
         try:
-            cl = Client()
-            session_file = f"{username}_session.json"
+    cl = Client()
+    session_file = f"{username}_session.json"
 
-            if os.path.exists(session_file):
-                cl.load_settings(session_file)
-                cl.login(username, password)
-            else:
-                cl.login(username, password)
-                cl.dump_settings(session_file)
+    if os.path.exists(session_file):
+        cl.load_settings(session_file)
+        cl.login(username, password)
+    else:
+        cl.login(username, password)
+        cl.dump_settings(session_file)
 
-            thread_key = str(uuid.uuid4())[:8]
+except Exception as e:
+    return HTML_HEAD + f"<h4>❌ Login Error: {e}</h4><a href='/ig-spammer'>Back</a>" + HTML_FOOT
+
+thread_key = str(uuid.uuid4())[:8]
 
 def spam():
     stop_flags[thread_key] = False
