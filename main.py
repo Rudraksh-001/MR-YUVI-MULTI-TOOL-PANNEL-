@@ -12,7 +12,14 @@ stop_flags = {}
 def index():
     return render_template('index.html')
 
-@app.route('/ig-spammer', methods=['GET', 'POST']) def ig_spammer(): HTML_HEAD = """ <html><head><title>IG Tool by KING MAKER YUVI</title> <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'> <style>body{background:#000;color:#0f0;font-family:monospace;}.container{margin-top:50px}</style></head><body> <div class='container'><h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr> """
+@app.route('/ig-spammer', methods=['GET', 'POST'])
+def ig_spammer():
+    HTML_HEAD = """
+    <html><head><title>IG Tool by KING MAKER YUVI</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <style>body{background:#000;color:#0f0;font-family:monospace;}.container{margin-top:50px}</style></head><body>
+    <div class='container'><h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
+    """
 
 HTML_FOOT = """
 <p class='text-center mt-4'>Made by <b>KING MAKER YUVI</b></p></div></body></html>
