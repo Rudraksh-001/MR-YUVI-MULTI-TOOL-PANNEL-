@@ -24,71 +24,52 @@ def ig_spammer():
         <title>IG Tool by KING MAKER YUVI</title>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
         <style>
-            body {
-                margin: 0;
-                background: linear-gradient(135deg, #000000, #001f3f);
-                font-family: 'Segoe UI', sans-serif;
-                color: #00ffcc;
-            }
-            .glass {
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 8px 32px 0 rgba(0, 255, 204, 0.37);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                border-radius: 20px;
-                padding: 20px;
-                margin-top: 30px;
-            }
-            .logo {
-                height: 100px;
-                border-radius: 20px;
-                box-shadow: 0 0 20px #00ffc3;
-            }
-            h1, h2 {
-                text-shadow: 0 0 5px #00ffc3;
-            }
-            .btn-success {
-                background-color: #00ff99;
-                border: none;
-                box-shadow: 0 0 10px #00ff99;
-            }
-            .btn-success:hover {
-                box-shadow: 0 0 20px #00ff99;
-            }
-            .btn-danger {
-                background-color: #ff0066;
-                border: none;
-                box-shadow: 0 0 10px #ff0066;
-            }
-            .btn-danger:hover {
-                box-shadow: 0 0 20px #ff0066;
-            }
-            .form-control {
-                background-color: rgba(0, 0, 0, 0.4);
-                border: 1px solid #00ffc3;
-                color: #fff;
-            }
-            .form-control:focus {
-                background-color: rgba(0, 0, 0, 0.5);
-                color: #fff;
-                box-shadow: 0 0 10px #00ffc3;
-                border-color: #00ffc3;
-            }
-            .loader {
-                border: 5px solid #f3f3f3;
-                border-top: 5px solid #00ffcc;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                animation: spin 1s linear infinite;
-                margin: auto;
-            }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        </style>
+    body {
+        background: linear-gradient(135deg, #ccffcc, #e6ffe6);
+        color: #000;
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .logo {
+        height: 100px;
+        border-radius: 20px;
+        box-shadow: 0 0 20px #ff69b4;
+    }
+    h1, h2, h4, h5 {
+        color: #006600;
+        text-shadow: 0 0 5px #ff69b4;
+    }
+    label {
+        font-weight: bold;
+    }
+    input, select, textarea {
+        margin-bottom: 10px;
+        border: 2px solid #99ff99;
+        background: #ffffffcc;
+        color: #000;
+    }
+    .btn-success {
+        background-color: #ff66cc;
+        border-color: #ff66cc;
+        color: #fff;
+        box-shadow: 0 0 10px #ff66cc;
+    }
+    .btn-danger {
+        background-color: #ff1a75;
+        border-color: #ff1a75;
+        color: #fff;
+        box-shadow: 0 0 10px #ff1a75;
+    }
+    .btn-success:hover, .btn-danger:hover {
+        box-shadow: 0 0 20px #ff33aa;
+    }
+    .container {
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 0 15px #ff99cc;
+    }
+</style>
     </head>
     <body>
         <div class='text-center mt-4'>
