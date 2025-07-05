@@ -78,7 +78,7 @@ def spam():
                 msg_count[thread_key] += 1
                 time.sleep(time_interval)
     except Exception as e:
-        print("Error:", e)
+        print("Error in spam thread:", e)
         
             thread = Thread(target=spam)
             thread.start()
