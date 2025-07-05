@@ -17,52 +17,77 @@ def index():
 
 @app.route('/ig-spammer', methods=['GET', 'POST'])
 def ig_spammer():
-    HTML_HEAD = """
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IG Tool by KING MAKER YUVI</title>
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-    <style>
-        body {
-            background: #000;
-            color: white;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        .logo {
-            height: 100px;
-            border-radius: 20px;
-            box-shadow: 0 0 20px #0ff;
-        }
-        h1 {
-            color: #00ff99;
-            text-shadow: 0 0 5px #0ff;
-        }
-        .admin-badge {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 255, 153, 0.1);
-            color: #00ff99;
-            padding: 8px 15px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px #0ff;
-            font-weight: bold;
-            z-index: 9999;
-        }
-    </style>
-</head>
-<body>
-    <div class="admin-badge">👑 Admin: KING MAKER YUVI</div>
+HTML_HEAD = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>IG Tool by KING MAKER YUVI</title>
+        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(135deg, #000000, #001f3f);
+                font-family: 'Segoe UI', sans-serif;
+                color: #00ffcc;
+            }
+            .glass {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px 0 rgba(0, 255, 204, 0.37);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border-radius: 20px;
+                padding: 20px;
+                margin-top: 30px;
+            }
+            .logo {
+                height: 100px;
+                border-radius: 20px;
+                box-shadow: 0 0 20px #00ffc3;
+            }
+            h1, h2 {
+                text-shadow: 0 0 5px #00ffc3;
+            }
+            .btn-success {
+                background-color: #00ff99;
+                border: none;
+                box-shadow: 0 0 10px #00ff99;
+            }
+            .btn-danger {
+                background-color: #ff0066;
+                border: none;
+                box-shadow: 0 0 10px #ff0066;
+            }
+            .form-control {
+                background-color: rgba(0, 0, 0, 0.4);
+                border: 1px solid #00ffc3;
+                color: #fff;
+            }
+            .form-control:focus {
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                box-shadow: 0 0 10px #00ffc3;
+                border-color: #00ffc3;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='text-center mt-4'>
+            <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
+            <h1>TOOL PANEL BY KING MAKER YUVI</h1>
+        </div>
+        <div class='container'>
+            <div class='glass'>
+                <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL 👑</h2><hr>
+    """
 
-    <div class='text-center'>
-        <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
-        <h1>TOOL PANEL BY KING MAKER YUVI</h1>
-    </div>
-    <div class='container mt-4'>
-        <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
-"""
+    HTML_FOOT = """
+                <p class='text-center mt-4'>Made by <b>KING MAKER YUVI</b></p>
+            </div>
+        </div>
+    </body>
+    </html>
+    """
 
     if request.method == 'POST':
         username = request.form['username']
