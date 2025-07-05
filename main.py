@@ -43,6 +43,7 @@ def ig_spammer():
             messages = f.read().splitlines()
 
         try:
+try:
     cl = Client()
     session_file = f"{username}_session.json"
 
@@ -52,10 +53,8 @@ def ig_spammer():
     else:
         cl.login(username, password)
         cl.dump_settings(session_file)
-
 except Exception as e:
     return HTML_HEAD + f"<h4>❌ Login Error: {e}</h4><a href='/ig-spammer'>Back</a>" + HTML_FOOT
-
 thread_key = str(uuid.uuid4())[:8]
 
 def spam():
