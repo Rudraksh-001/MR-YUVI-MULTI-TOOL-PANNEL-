@@ -2,12 +2,14 @@ from flask import Flask, request, session, render_template
 from instagrapi import Client
 import os, time, uuid
 from threading import Thread
+from itertools import cycle
 
 app = Flask(__name__)
 app.secret_key = 'yuvi-king-secret'
 
 clients = {}
 stop_flags = {}
+msg_count = {}
 
 @app.route('/')
 def index():
@@ -54,19 +56,22 @@ def ig_spammer():
             thread_key = str(uuid.uuid4())[:8]
 
             def spam():
-                stop_flags[thread_key] = False
-                try:
-                    if group_thread_id:
-                        for msg in messages:
-                            if stop_flags[thread_key]: break
-                            cl.direct_send(msg, thread_ids=[group_thread_id])
-                            time.sleep(time_interval)
-                    elif target_username:
-                        user_id = cl.user_id_from_username(target_username)
-                        for msg in messages:
-                            if stop_flags[thread_key]: break
-                            cl.direct_send(msg, [user_id])
-                            time.sleep(time_interval)
+    stop_flags[thread_key] = False
+    msg_count[thread_key] = 0
+    try:
+        if group_thread_id:
+            for msg in cycle(messages):
+                if stop_flags[thread_key]: break
+                cl.direct_send(msg, thread_ids=[group_thread_id])
+                msg_count[thread_key] += 1
+                time.sleep(time_interval)
+        elif target_username:
+            user_id = cl.user_id_from_username(target_username)
+            for msg in cycle(messages):
+                if stop_flags[thread_key]: break
+                cl.direct_send(msg, [user_id])
+                msg_count[thread_key] += 1
+                time.sleep(time_interval)
                 except Exception as e:
                     print("Error:", e)
 
@@ -81,22 +86,19 @@ def ig_spammer():
             return HTML_HEAD + f"<h4>❌ Error: {e}</h4><a href='/ig-spammer'>Back</a>" + HTML_FOOT
 
     # GET method: show form
-    html = HTML_HEAD + """
-    <form method='post' enctype='multipart/form-data'>
-        <label>Username:</label><input name='username' class='form-control' required>
-        <label>Password:</label><input name='password' type='password' class='form-control' required>
-        <label>Target Username:</label><input name='targetUsername' class='form-control'>
-        <label>OR Group Thread ID:</label><input name='groupThreadId' class='form-control'>
-        <label>Message File (.txt):</label><input type='file' name='txtFile' class='form-control' required>
-        <label>Time Interval (seconds):</label><input type='number' name='timeInterval' class='form-control' value='2' required>
-        <button type='submit' class='btn btn-success w-100 mt-3'>Launch Attack</button>
-    </form>
-    <hr>
-    <form method='post' action='/stop'>
-        <label>Enter STOP Key:</label><input name='thread_key' class='form-control' required>
-        <button type='submit' class='btn btn-danger w-100 mt-2'>STOP</button>
-    </form>
-    """ + HTML_FOOT
+    return HTML_HEAD + f"""
+<h4>✅ Started attack for <b>{username}</b></h4>
+<h5>🚩 STOP Key: <code>{thread_key}</code></h5>
+<h4>📨 Messages Sent: <span id='count'>0</span></h4>
+<script>
+setInterval(() => {{
+    fetch('/msg-count/{thread_key}').then(r => r.text()).then(txt => {{
+        document.getElementById("count").innerText = txt;
+    }});
+}}, 2000);
+</script>
+<a href='/ig-spammer'>Back</a>
+""" + HTML_FOOT
     return html
 
 @app.route('/stop', methods=['POST'])
