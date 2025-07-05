@@ -18,44 +18,51 @@ def index():
 @app.route('/ig-spammer', methods=['GET', 'POST'])
 def ig_spammer():
     HTML_HEAD = """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>IG Tool by KING MAKER YUVI</title>
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-        <style>
-            body {
-                background: #000;
-                color: white;
-                font-family: Arial, sans-serif;
-                padding: 20px;
-            }
-            .logo {
-                height: 100px;
-                border-radius: 20px;
-                box-shadow: 0 0 20px #0ff;
-            }
-            h1 {
-                color: #00ff99;
-                text-shadow: 0 0 5px #0ff;
-            }
-        </style>
-    </head>
-    <body>
-        <div class='text-center'>
-            <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
-            <h1>TOOL PANEL BY KING MAKER YUVI</h1>
-        </div>
-        <div class='container mt-4'>
-            <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
-    """
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IG Tool by KING MAKER YUVI</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <style>
+        body {
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .logo {
+            height: 100px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #0ff;
+        }
+        h1 {
+            color: #00ff99;
+            text-shadow: 0 0 5px #0ff;
+        }
+        .admin-badge {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 255, 153, 0.1);
+            color: #00ff99;
+            padding: 8px 15px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px #0ff;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-badge">👑 Admin: KING MAKER YUVI</div>
 
-    HTML_FOOT = """
-            <p class='text-center mt-4'>Made by <b>KING MAKER YUVI</b></p>
-        </div>
-    </body>
-    </html>
-    """
+    <div class='text-center'>
+        <img src='https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg' alt='KING MAKER YUVI' class='logo'>
+        <h1>TOOL PANEL BY KING MAKER YUVI</h1>
+    </div>
+    <div class='container mt-4'>
+        <h2 class='text-center'>👑 INSTAGRAM SPAMMER TOOL BY KING MAKER YUVI 👑</h2><hr>
+"""
 
     if request.method == 'POST':
         username = request.form['username']
