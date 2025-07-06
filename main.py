@@ -221,6 +221,33 @@ def token_checker():
     </html>
     """
 
+@app.route('/page-token', methods=['GET', 'POST'])
+def page_token_tool():
+    HTML_TEMPLATE = """ 
+    <!-- HTML_TEMPLATE same as before --> 
+    """
+    pages = []
+    error = None
+    if request.method == 'POST':
+        token = request.form.get('access_token')
+        try:
+            res = requests.get(f'https://graph.facebook.com/me/accounts?access_token={token}')
+            data = res.json()
+            if 'error' in data:
+                error = data['error']['message']
+            else:
+                for page in data.get('data', []):
+                    pages.append({
+                        'name': page.get('name'),
+                        'id': page.get('id'),
+                        'token': page.get('access_token')
+                    })
+                if not pages:
+                    error = "No pages found for this token."
+        except Exception as e:
+            error = "Error: " + str(e)
+    return render_template_string(HTML_TEMPLATE, pages=pages, error=error)
+    
     if request.method == 'POST':
         access_token = request.form.get('token')
         if not access_token:
