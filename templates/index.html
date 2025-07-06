@@ -1,3 +1,4 @@
+<!-- 🔥 YUVI CUSTOM PANEL WITH LOGO -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,18 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YUVI FB TOOL PANEL</title>
   <style>
-    /* DARK OVERLAY ON VIDEO */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.7); /* Adjust darkness */
-      z-index: -1;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: black;
     }
-
+    .logo-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .logo-box img {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00ffee;
+      border: 2px solid #ff00ff;
+    }
+    .logo-box h2 {
+      margin-top: 10px;
+      font-size: 22px;
+      text-shadow: 0 0 10px #00ffee;
+      color: #00ffee;
+    }
     .tool-box {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
@@ -50,100 +63,32 @@
   </style>
 </head>
 
-<!-- Background Video -->
+<!-- 🔥 Background Video -->
 <video autoplay muted loop id="bg-video" style="
   position: fixed;
   right: 0;
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -2;
+  z-index: -1;
   object-fit: cover;
+  opacity: 0.25;
+  filter: brightness(0.4); /* Make it dark */
 ">
   <source src="https://raw.githubusercontent.com/Mryuvi1/Videos-x/main/vudeo%20sushha.mp4" type="video/mp4">
-  Your browser does not support the video tag.
 </video>
 
-<body style="position: relative; z-index: 0; color: white; font-family: Arial, sans-serif; text-align: center;">
-
-  <div class="sidebar">
-    <h2><i class="fas fa-toolbox"></i> TOOLS</h2>
-    <a href="#"><i class="fas fa-home"></i> Home</a>
-    <a href="#"><i class="fas fa-wrench"></i> All Tools</a>
-    <a href="#"><i class="fas fa-info-circle"></i> About</a>
-    <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+<body>
+  <!-- 👑 Logo Section -->
+  <div class="logo-box">
+    <img src="https://i.postimg.cc/zvNZ3p7y/yuvi-pic.jpg" alt="Yuvi Logo">
+    <h2>PANEL BY KING MAKER YUVI 🐼</h2>
   </div>
 
-  <div class="main">
-    <div class="topnav">
-      <h1>🩷𝐅𝐔𝐂𝐊𝐈𝐍𝐆 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 𝐘𝐔𝐕𝐈 𝐇𝐄𝐑𝐄🪽</h1>
-      <div><i class="fas fa-user-circle"></i> TOOL OWNER MR_YUVI 🐼</div>
-    </div>
+  <!-- 🛠️ Tool Boxes and other content (your full panel) here -->
+  <!-- Paste your full tool boxes content from your old index.html below this line -->
+  
+  <!-- ... Copy-paste all your previous tool-box HTML here ... -->
 
-    <div class="welcome">😘 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐓𝐇𝐄 𝐏𝐀𝐍𝐍𝐄𝐋 𝐎𝐅 𝐋𝐄𝐆𝐄𝐍𝐃 𝐘𝐔𝐕𝐈 🐼</div>
-    <div>PING <span style="color: #00ff99;">Online</span></div>
-    <div>TIME: <span id="time" style="color: #ffff66;">Loading...</span></div>
-    <div>DATE: <span id="date" style="color: #ffff66;">Loading...</span></div>
-    <div>IP: <span id="ip" style="color: #ffff66;">Loading...</span></div>
-
-    <!-- TOOL BOXES -->
-
-    <!-- Instagram Tool -->
-    <div class="tool-box" style="position: relative; overflow: hidden; border-radius: 10px;">
-      <img src="https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
-      <a href="https://insta-x-n106.onrender.com" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: #00ff99; color: black; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px #00ff99;">
-        Open Tool
-      </a>
-    </div>
-
-    <!-- X Video Tool -->
-    <div class="tool-box" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,150,0.4); margin-bottom: 20px;">
-      <img src="https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
-      <a href="https://x-video-in-p183.onrender.com" target="_blank" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 255, 200, 0.9); color: black; padding: 10px 25px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 16px; box-shadow: 0 0 12px #00ffc8;">
-        Open Tool
-      </a>
-    </div>
-
-    <!-- More tool-boxes below (same as you added) -->
-    <!-- You can keep reusing same structure for all your other tools -->
-
-    <!-- POST SERVER -->
-    <div class="tool-box" style="position: relative; overflow: hidden; border-radius: 15px; width: 300px; height: 180px; margin: 20px; box-shadow: 0 0 15px rgba(0,0,0,0.4);">
-      <img src="https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg" style="width: 100%; height: 100%; object-fit: cover; filter: blur(2px) brightness(0.7);" />
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold; text-shadow: 0 0 5px black;">
-        <h3 style="font-size: 20px; margin-bottom: 10px;">POST SERVER</h3>
-        <a href="https://postx-x94i.onrender.com" target="_blank" style="padding: 10px 20px; background-color: rgba(0, 255, 170, 0.9); color: black; border-radius: 25px; text-decoration: none; box-shadow: 0 0 10px #00ffaa; transition: all 0.3s ease;">
-          Open Tool
-        </a>
-      </div>
-    </div>
-
-    <!-- Add other tools below (PROFILE UID, PAGE TOKEN, TOKEN CHECKER, etc.) -->
-
-    <!-- TOOL JS -->
-    <script>
-      function showTool(id) {
-        const tools = document.querySelectorAll('.tool-frame');
-        tools.forEach(tool => tool.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
-      }
-
-      async function updateInfo() {
-        try {
-          const res = await fetch('/live-info');
-          const data = await res.json();
-          document.getElementById('time').textContent = data.time;
-          document.getElementById('date').textContent = data.date;
-          document.getElementById('ip').textContent = data.ip;
-        } catch (err) {
-          console.error('Error loading live info:', err);
-        }
-      }
-
-      updateInfo();
-      setInterval(updateInfo, 10000);
-    </script>
-
-  </div>
 </body>
 </html>
