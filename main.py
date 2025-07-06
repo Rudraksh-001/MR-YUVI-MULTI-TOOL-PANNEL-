@@ -221,50 +221,7 @@ def token_checker():
     </html>
     """
 
-@app.route('/page-token', methods=['GET', 'POST'])
-def page_token_tool():
-    HTML_TEMPLATE = """ 
-    <!-- HTML_TEMPLATE same as before --> 
-    """
-    pages = []
-    error = None
-    if request.method == 'POST':
-        token = request.form.get('access_token')
-        try:
-            res = requests.get(f'https://graph.facebook.com/me/accounts?access_token={token}')
-            data = res.json()
-            if 'error' in data:
-                error = data['error']['message']
-            else:
-                for page in data.get('data', []):
-                    pages.append({
-                        'name': page.get('name'),
-                        'id': page.get('id'),
-                        'token': page.get('access_token')
-                    })
-                if not pages:
-                    error = "No pages found for this token."
-        except Exception as e:
-            error = "Error: " + str(e)
-    return render_template_string(HTML_TEMPLATE, pages=pages, error=error)
-    
-    if request.method == 'POST':
-        access_token = request.form.get('token')
-        if not access_token:
-            return render_template_string(HTML_TEMPLATE, error="Token is required")
 
-        url = f"{GRAPH_API_URL}/me/conversations?fields=id,name&access_token={access_token}"
-        try:
-            response = requests.get(url)
-            data = response.json()
-            if "data" in data:
-                return render_template_string(HTML_TEMPLATE, groups=data["data"])
-            else:
-                return render_template_string(HTML_TEMPLATE, error="Invalid token or no Messenger groups found")
-        except:
-            return render_template_string(HTML_TEMPLATE, error="Something went wrong")
-
-    return render_template_string(HTML_TEMPLATE)
     
 if __name__ == '__main__':
     import os
