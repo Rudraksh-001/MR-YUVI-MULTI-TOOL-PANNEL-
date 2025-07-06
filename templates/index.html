@@ -1,4 +1,3 @@
-<!-- 🔥 YUVI CUSTOM PANEL WITH LOGO -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,16 +78,59 @@
 </video>
 
 <body>
-  <!-- 👑 Logo Section -->
+  <!-- 👑 LOGO -->
   <div class="logo-box">
     <img src="https://i.postimg.cc/zvNZ3p7y/yuvi-pic.jpg" alt="Yuvi Logo">
     <h2>PANEL BY KING MAKER YUVI 🐼</h2>
   </div>
 
-  <!-- 🛠️ Tool Boxes and other content (your full panel) here -->
-  <!-- Paste your full tool boxes content from your old index.html below this line -->
-  
-  <!-- ... Copy-paste all your previous tool-box HTML here ... -->
+  <!-- 👇 AAPKA ORIGINAL PANEL START -->
+  <div style="text-align:center; margin-top: 20px;">
+    <h1>🩷𝐅𝐔𝐂𝐊𝐈𝐍𝐆 𝐌𝐀𝐂𝐇𝐈𝐍𝐄 𝐘𝐔𝐕𝐈 𝐇𝐄𝐑𝐄🪽</h1>
+    <div><i class="fas fa-user-circle"></i> TOOL OWNER MR_YUVI 🐼</div>
+    <div class="welcome">😘 𝐖𝐄𝐋𝐂𝐎𝐌𝐄 𝐓𝐎 𝐓𝐇𝐄 𝐏𝐀𝐍𝐍𝐄𝐋 𝐎𝐅 𝐋𝐄𝐆𝐄𝐍𝐃 𝐘𝐔𝐕𝐈 🐼</div>
+    <div>PING <span style="color: #00ff99;">Online</span></div>
+    <div>TIME: <span id="time" style="color: #ffff66;">Loading...</span></div>
+    <div>DATE: <span id="date" style="color: #ffff66;">Loading...</span></div>
+    <div>IP: <span id="ip" style="color: #ffff66;">Loading...</span></div>
+  </div>
 
+  <!-- ✅ AAPKE SARE TOOL BOX YAHI SE SHURU -->
+  
+  <!-- 👇👇 Yahan aapke saare <div class="tool-box"> ... </div> box jese ke Insta Tool, UID Tool, Token Tool, etc. jo aapne pehle bheje the wahi paste kar diye jaayein. -->
+
+  <!-- ✨ Example 1 -->
+  <div class="tool-box" style="position: relative; overflow: hidden; border-radius: 10px;">
+    <img src="https://i.postimg.cc/Kcr5V75s/a58f941bc7aaad40797dfe63fcaaa34e.jpg" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;" />
+    <a href="https://insta-x-n106.onrender.com" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background-color: #00ff99; color: black; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 0 10px #00ff99;">
+      Open Tool
+    </a>
+  </div>
+
+  <!-- ✨ Paste all other tools below here... (copy from your full file) -->
+  <!-- 🔁 Tool 2, Tool 3, Tool 4, ... -->
+
+  <!-- 👇 JS Section -->
+  <script>
+    function showTool(id) {
+      const tools = document.querySelectorAll('.tool-frame');
+      tools.forEach(tool => tool.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    async function updateInfo() {
+      try {
+        const res = await fetch('/live-info');
+        const data = await res.json();
+        document.getElementById('time').textContent = data.time;
+        document.getElementById('date').textContent = data.date;
+        document.getElementById('ip').textContent = data.ip;
+      } catch (err) {
+        console.error('Error loading live info:', err);
+      }
+    }
+    updateInfo();
+    setInterval(updateInfo, 10000);
+  </script>
 </body>
 </html>
