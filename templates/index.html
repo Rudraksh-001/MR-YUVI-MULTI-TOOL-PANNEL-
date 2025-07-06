@@ -86,31 +86,37 @@
       font-size: 26px;
       color: #ffaaff;
       margin-bottom: 15px;
-      text-shadow: 0 0 12px #ffb3ff;
-    }
-    .tool-desc { font-size: 18px; color: #eee; }
-    .open-tool-btn {
-      margin-top: 20px;
-      padding: 8px 20px;
-      font-size: 13px;
-      font-weight: bold;
-      border: none;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #ff5fe0, #b04fff);
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 0 12px #ff82ee;
-      transition: 0.3s ease;
-    }
-    .open-tool-btn:hover { background: linear-gradient(135deg, #ffa0fc, #a56cff); }
-    @media(max-width: 768px) {
-      .sidebar { display: none; }
-      .main { padding: 20px; }
-      .topnav h1 { font-size: 18px; }
-      .welcome { font-size: 28px; }
-      .tool-box { padding: 30px 20px; }
-    }
-  </style>
+<style>
+.tool-btn {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 0 10px #00ffd5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tool-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff00ff;
+}
+.tool-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.tool-frame {
+  display: none;
+  margin-top: 20px;
+}
+</style>
 </head>
 <body>
   <div class="sidebar">
@@ -190,17 +196,25 @@
     <h1 style="color: #00ff99; text-shadow: 0 0 5px #0ff;">TOOL PANEL BY KING MAKER YUVI</h1>
     </div>
 
-    
+    <!-- Button -->
+<button class="tool-btn" onclick="showTool('token_checker_box')">
+  <img src="/static/icons/token.png" class="tool-icon" />
+  FACEBOOK TOKEN CHECKER
+</button>
+
+<!-- Iframe box -->
+<div id="token_checker_box" class="tool-frame">
+  <iframe src="/token_checker" frameborder="0"></iframe>
+</div>
 
   <!-- Working JS script at the bottom -->
-  <script>
-    document.querySelectorAll('.open-tool-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const url = btn.getAttribute('data-link');
-        if (url) window.open(url, '_blank');
-      });
-    });
-  </script>
+<script>
+function showTool(id) {
+  const tools = document.querySelectorAll('.tool-frame');
+  tools.forEach(tool => tool.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+}
+</script>
     
 <script>
   async function updateInfo() {
