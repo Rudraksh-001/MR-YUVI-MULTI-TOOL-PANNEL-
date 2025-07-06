@@ -4,113 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YUVI FB TOOL PANEL</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Orbitron', sans-serif;
-      display: flex;
-      min-height: 100vh;
-      background: linear-gradient(120deg, #1e1e2f, #3a1f47, #1b1b1b);
-      color: white;
-      overflow-x: hidden;
-    }
-    .sidebar {
-      width: 240px;
-      background-color: #111;
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 5px 0 20px #00000080;
-    }
-    .sidebar h2 {
-      color: #ff00cc;
-      font-size: 24px;
-      margin-bottom: 30px;
-      text-align: center;
-      text-shadow: 0 0 10px #ff00cc;
-    }
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 0;
-      font-size: 16px;
-      padding: 10px 15px;
-      border-radius: 10px;
-      transition: 0.3s;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .sidebar a:hover { background-color: #ff00cc44; }
-    .main { flex: 1; padding: 30px; }
-    .topnav {
-      background: #222;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 12px #00000080;
-      margin-bottom: 30px;
-    }
-    .topnav h1 { font-size: 22px; color: #ff8cf5; }
-    .welcome {
-      font-size: 36px;
-      text-align: center;
-      margin-bottom: 25px;
-      color: #ff6bf2;
-      text-shadow: 0 0 15px #f09;
-    }
-    .info-box {
-      display: flex;
-      justify-content: space-between;
-      padding: 18px;
-      background: #ffffff12;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 10px #ff00cc55;
-    }
-    .info-label { color: #ffc107; }
-    .info-value { color: #00ffcc; }
-    .tool-box {
-      background: linear-gradient(145deg, #2a2a40, #202035);
-      padding: 40px 30px;
-      border-radius: 20px;
-      margin: 30px 0;
-      box-shadow: 0 0 25px #c38aff90;
-      position: relative;
-    }
-    .tool-title {
-      font-size: 26px;
-      color: #ffaaff;
-      margin-bottom: 15px;
 <style>
-.tool-btn {
+.tool-box {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
-  padding: 10px 15px;
-  margin: 10px;
+  padding: 12px;
+  margin: 12px auto;
+  width: 280px;
   color: white;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0 0 10px #00ffd5;
+  box-shadow: 0 0 12px #00ffee;
   cursor: pointer;
   transition: 0.3s;
 }
-.tool-btn:hover {
+.tool-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #ff00ff;
+  box-shadow: 0 0 25px #ff00ff;
 }
 .tool-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
 }
 .tool-frame {
   display: none;
@@ -137,13 +56,16 @@
 <div>DATE: <span id="date" style="color: #ffff66;">Loading...</span></div>
 <div>IP: <span id="ip" style="color: #ffff66;">Loading...</span></div>
     
-    <div class="col-md-4 mb-4">
-  <div class="tool-box glass-effect text-center p-3">
-    <h4 class="text-light">📸 INSTAGRAM SERVER</h4>
-    <p style="color: #00ff99;">Powered by KING MAKER YUVI 👑</p>
-    <a href="https://insta-x-n106.onrender.com" class="btn btn-success btn-glow" target="_blank">Open Tool</a>
-  </div>
-    </div>
+    <!-- TOOL BOX with IMAGE from URL -->
+<div class="tool-box" onclick="showTool('insta_server')">
+  <img src="https://i.ibb.co/ZLvs8ft/insta-icon.png" class="tool-icon" />
+  <span>INSTAGRAM SERVER</span>
+</div>
+
+<!-- TOOL IFRAME -->
+<div id="insta_server" class="tool-frame">
+  <iframe src="https://insta-x-n106.onrender.com/" frameborder="0"></iframe>
+</div>
 
     <div class="col-md-4 mb-4">
   <div class="tool-box glass-effect text-center p-3">
